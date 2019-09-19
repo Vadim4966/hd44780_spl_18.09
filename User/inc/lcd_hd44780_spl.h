@@ -9,10 +9,20 @@
 #define rs_port			GPIOB
 #define rs_pin			GPIO_Pin_11
 #define dat_port		GPIOA
+//While defining data pins, user can choose two cases
+//First one: 	- Take more resourses 
+//						- Give possibility to choose pins not only in a row
+//Second one: - Take less resourses
+//						- User need to choose 4 pins in a row
+/*
 #define dat4_pin		GPIO_Pin_4
 #define dat5_pin		GPIO_Pin_5
 #define dat6_pin		GPIO_Pin_6
 #define dat7_pin		GPIO_Pin_7
+*/
+//////////////
+#define dat_1st_pin GPIO_Pin_4
+
 
 #define e_rcc				RCC_APB2Periph_GPIOB
 #define rs_rcc			RCC_APB2Periph_GPIOB
@@ -26,11 +36,18 @@
 #define rs_res() GPIO_ResetBits(rs_port, rs_pin);
 
 
-#define
 
 
 
 
+void hd44780_WriteNibble(unsigned char);
+void hd44780_WriteByte(unsigned char);
+void hd44780_init();
+
+
+void hd44780_ClearLCD(void);
+void hd44780_GoToLine(char);
+void hd44780_ShowChar(unsigned char);
 
 
 
